@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 
 import com.google.common.base.Supplier;
 
-import de.cosmocode.palava.Service;
+import de.cosmocode.palava.core.service.Service;
 
 /**
  * A {@link Service} used to provide access to a {@link DataSource}.
