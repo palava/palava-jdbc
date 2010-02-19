@@ -2,7 +2,9 @@ package de.cosmocode.palava.services.db;
 
 import java.sql.Connection;
 
-import de.cosmocode.palava.core.ServiceModule;
+import com.google.inject.Binder;
+import com.google.inject.Module;
+import com.google.inject.Singleton;
 
 /**
  * Binds the default provider for {@link Connection}s.
@@ -13,11 +15,11 @@ import de.cosmocode.palava.core.ServiceModule;
  *
  * @author Willi Schoenborn
  */
-final class ConnectionProviderModule extends ServiceModule {
+final class ConnectionProviderModule implements Module {
 
     @Override
-    protected void configure() {
-        serve(ConnectionProvider.class).with(DefaultConnectionProvider.class);
+    public void configure(Binder binder) {
+        binder.bind(ConnectionProvider.class).to(DefaultConnectionProvider.class).in(Singleton.class);
     }
 
 }
