@@ -28,7 +28,7 @@ import de.cosmocode.palava.core.lifecycle.LifecycleModule;
  *
  * @author Willi Schoenborn
  */
-public final class TestModule implements Module {
+public final class ApplicationModule implements Module {
 
     @Override
     public void configure(Binder binder) {
