@@ -16,9 +16,13 @@
 
 package de.cosmocode.palava.jdbc;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import de.cosmocode.junit.UnitProvider;
+import de.cosmocode.palava.core.Framework;
+import de.cosmocode.palava.core.FrameworkLoader;
 
 /**
  * Abstract test class for {@link JdbcService}s.
@@ -27,12 +31,35 @@ import de.cosmocode.junit.UnitProvider;
  */
 public abstract class AbstractJdbcServiceTest implements UnitProvider<JdbcService> {
 
+    private Framework framework;
+    
+    public Framework getFramework() {
+        return framework;
+    }
+    
+    /**
+     * Runs before each test.
+     */
+    @Before
+    public void before() {
+        framework = FrameworkLoader.load();
+        framework.start();
+    }
+    
     /**
      * Tests creation of a new instance.
      */
     @Test
     public void create() {
         unit();
+    }
+    
+    /**
+     * Runs after each test.
+     */
+    @After
+    public void after() {
+        framework.stop();
     }
 
 }

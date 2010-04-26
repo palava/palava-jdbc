@@ -19,8 +19,6 @@ package de.cosmocode.palava.jdbc;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
 
-import de.cosmocode.palava.core.FrameworkLoader;
-
 /**
  * Tests {@link JdbcService} using hsqldb.
  *
@@ -30,7 +28,7 @@ public class AxionJdbcServiceTest extends AbstractJdbcServiceTest {
 
     @Override
     public JdbcService unit() {
-        return FrameworkLoader.load().getInstance(Key.get(JdbcService.class, Names.named("axion")));
+        return getFramework().getInstance(Key.get(JdbcService.class, Names.named("axion")));
     }
 
 }
