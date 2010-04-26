@@ -16,10 +16,6 @@
 
 package de.cosmocode.palava.jdbc;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import org.junit.Assert;
 import org.junit.Test;
 
 import de.cosmocode.junit.UnitProvider;
@@ -37,20 +33,6 @@ public abstract class AbstractJdbcServiceTest implements UnitProvider<JdbcServic
     @Test
     public void create() {
         unit();
-    }
-    
-    /**
-     * Tests {@link JdbcService#connect()}.
-     * 
-     * @throws SQLException should not happen 
-     */
-    @Test
-    public void connect() throws SQLException {
-        final Connection connection = unit().connect();
-        Assert.assertNotNull(connection);
-        Assert.assertFalse(connection.isClosed());
-        connection.close();
-        Assert.assertTrue(connection.isClosed());
     }
 
 }
