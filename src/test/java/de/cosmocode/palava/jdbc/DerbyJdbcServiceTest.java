@@ -14,30 +14,23 @@
  * limitations under the License.
  */
 
-package de.cosmocode.palava.services.db;
+package de.cosmocode.palava.jdbc;
 
-import javax.sql.DataSource;
+import com.google.inject.Key;
+import com.google.inject.name.Names;
 
-import com.google.common.base.Supplier;
-
-import de.cosmocode.palava.jdbc.JdbcService;
+import de.cosmocode.palava.core.FrameworkLoader;
 
 /**
- * A service used to provide access to a {@link DataSource}.
+ * Tests {@link JdbcService} using hsqldb.
  *
- * @deprecated use {@link JdbcService} instead
  * @author Willi Schoenborn
  */
-@Deprecated
-public interface Database extends Supplier<DataSource> {
+public class DerbyJdbcServiceTest extends AbstractJdbcServiceTest {
 
-    /**
-     * Provides a cached and configured {@link DataSource} instance.
-     * {@inheritDoc}
-     * @deprecated use {@link JdbcService} instead
-     */
-    @Deprecated
     @Override
-    DataSource get();
-    
+    public JdbcService unit() {
+        return FrameworkLoader.load().getInstance(Key.get(JdbcService.class, Names.named("derby")));
+    }
+
 }

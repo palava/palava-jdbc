@@ -14,30 +14,24 @@
  * limitations under the License.
  */
 
-package de.cosmocode.palava.services.db;
+package de.cosmocode.palava.jdbc;
 
-import javax.sql.DataSource;
-
-import com.google.common.base.Supplier;
-
-import de.cosmocode.palava.jdbc.JdbcService;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
- * A service used to provide access to a {@link DataSource}.
+ * A simple connection jdbc provider.
  *
- * @deprecated use {@link JdbcService} instead
  * @author Willi Schoenborn
  */
-@Deprecated
-public interface Database extends Supplier<DataSource> {
+public interface JdbcService {
 
     /**
-     * Provides a cached and configured {@link DataSource} instance.
-     * {@inheritDoc}
-     * @deprecated use {@link JdbcService} instead
+     * Connects the configured database of this service.
+     * 
+     * @return a new connection
+     * @throws SQLException if opening a connection failed
      */
-    @Deprecated
-    @Override
-    DataSource get();
+    Connection connect() throws SQLException;
     
 }

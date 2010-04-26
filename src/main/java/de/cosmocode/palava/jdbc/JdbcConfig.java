@@ -14,30 +14,28 @@
  * limitations under the License.
  */
 
-package de.cosmocode.palava.services.db;
+package de.cosmocode.palava.jdbc;
 
-import javax.sql.DataSource;
-
-import com.google.common.base.Supplier;
-
-import de.cosmocode.palava.jdbc.JdbcService;
 
 /**
- * A service used to provide access to a {@link DataSource}.
+ * Static constant holder class for jdbc config key names.
  *
- * @deprecated use {@link JdbcService} instead
  * @author Willi Schoenborn
  */
-@Deprecated
-public interface Database extends Supplier<DataSource> {
+public final class JdbcConfig {
 
-    /**
-     * Provides a cached and configured {@link DataSource} instance.
-     * {@inheritDoc}
-     * @deprecated use {@link JdbcService} instead
-     */
-    @Deprecated
-    @Override
-    DataSource get();
+    public static final String PREFIX = "jdbc.";
+    
+    public static final String URL = PREFIX + "url";
+    
+    public static final String DRIVER = PREFIX + "driver";
+    
+    public static final String TEST_STATEMENT = PREFIX + "testStatement";
+    
+    public static final String PROPERTIES = PREFIX + "properties";
+    
+    private JdbcConfig() {
+        
+    }
     
 }
