@@ -22,7 +22,7 @@ import org.junit.Test;
 
 import de.cosmocode.junit.UnitProvider;
 import de.cosmocode.palava.core.Framework;
-import de.cosmocode.palava.core.FrameworkLoader;
+import de.cosmocode.palava.core.Palava;
 
 /**
  * Abstract test class for {@link JdbcService}s.
@@ -31,7 +31,7 @@ import de.cosmocode.palava.core.FrameworkLoader;
  */
 public abstract class AbstractJdbcServiceTest implements UnitProvider<JdbcService> {
 
-    private Framework framework;
+    private final Framework framework = Palava.newFramework();
     
     public Framework getFramework() {
         return framework;
@@ -42,7 +42,6 @@ public abstract class AbstractJdbcServiceTest implements UnitProvider<JdbcServic
      */
     @Before
     public void before() {
-        framework = FrameworkLoader.load();
         framework.start();
     }
     

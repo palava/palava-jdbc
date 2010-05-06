@@ -34,13 +34,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>de.cosmocode.palava</groupId>
-      <artifactId>palava-core</artifactId>
-      <version>[2.4-SNAPSHOT,3)</version>
-      <type>test-jar</type>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
       <version>1.8.0.10</version>
