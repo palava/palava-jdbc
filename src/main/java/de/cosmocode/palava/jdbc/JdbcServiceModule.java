@@ -29,7 +29,7 @@ import com.google.inject.TypeLiteral;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 
-import de.cosmocode.palava.core.inject.AbstractRebindingModule;
+import de.cosmocode.palava.core.inject.AbstractRebindModule;
 import de.cosmocode.palava.core.inject.Config;
 import de.cosmocode.palava.core.inject.RebindModule;
 
@@ -90,7 +90,7 @@ public final class JdbcServiceModule implements Module {
      *
      * @author Willi Schoenborn
      */
-    private static final class AnnotatedInstanceModule extends AbstractRebindingModule {
+    private static final class AnnotatedInstanceModule extends AbstractRebindModule {
         
         private final Annotation annotation;
         private final Config config;
@@ -150,7 +150,7 @@ public final class JdbcServiceModule implements Module {
      *
      * @author Willi Schoenborn
      */
-    private static final class AnnotatedModule extends AbstractRebindingModule {
+    private static final class AnnotatedModule extends AbstractRebindModule {
         
         private final Class<? extends Annotation> annotation;
         private final Config config;
